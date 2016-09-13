@@ -461,10 +461,11 @@ int main(int, char const**)
             state = backwardsPath.size()-2;
             
         }
-     
+        if(backwardsPath.size() > 0 && state < backwardsPath.size()){
         magnitude = pow(pow(rect.getPosition().x - backwardsPath[state]->position.x,2) + pow(rect.getPosition().y - backwardsPath[state]->position.y,2),0.5);
         rect.move((backwardsPath[state]->position.x - rect.getPosition().x)/magnitude, (backwardsPath[state]->position.y - rect.getPosition().y)/magnitude);
         circle.setFillColor(sf::Color::Yellow);
+        }
         for(int a = 0; a < backwardsPath.size(); a++){
             circle.setPosition(backwardsPath[a]->position.x, backwardsPath[a]->position.y);
             window.draw(circle);
